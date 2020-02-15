@@ -1,8 +1,3 @@
-# coding:utf-8
-
-# 适用于Python3环境
-
-# 屏蔽模块差异
 try:
     import MySQLdb as db
 except ImportError:
@@ -21,7 +16,6 @@ def create_table(conn):
       execute_sql(conn, sql_drop_table)
       execute_sql(conn, sql_create_table)
 
-# 连接db
 def get_conn(**kwargs):
      return db.connect(host=kwargs.get('host', 'localhost'),
                                       user=kwargs.get('user'),
@@ -39,7 +33,7 @@ def insert_data(conn, sno, sname, sage):
     execute_sql(conn, sql)
 
 def main():
-    conn = get_conn(host="localhost",user="root",passwd="123456",db="test")
+    conn = get_conn(host="localhost",user="root",passwd="gx123456",db="test")
     try:
         create_table(conn)
         insert_data(conn, 1,'a', 18)
